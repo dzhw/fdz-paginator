@@ -36,29 +36,50 @@
                     <md-card-header-text>
                         <h2>Configuration</h2>
                     </md-card-header-text>
-                    <md-button class="md-card-collapsible-button" ng-click="ctrl.collapsed = !ctrl.collapsed">
-                        <md-icon md-font-set="material-icons" ng-if="!ctrl.collapsed">keyboard_arrow_up</md-icon>
-                        <md-icon md-font-set="material-icons" ng-if="ctrl.collapsed">keyboard_arrow_down</md-icon>
+                    <md-button
+                            aria-label="md-card collapsed = {{ctrl.collapsed}}}"
+                            class="md-card-collapsible-button"
+                            ng-click="ctrl.collapsed = !ctrl.collapsed">
+                        <md-icon md-font-set="material-icons" ng-if="ctrl.collapsed">keyboard_arrow_up</md-icon>
+                        <md-icon md-font-set="material-icons" ng-if="!ctrl.collapsed">keyboard_arrow_down</md-icon>
                     </md-button>
                 </md-card-header>
                 <div ng-if="ctrl.collapsed">
                     <md-divider></md-divider>
-                    <md-card-content>
-                        <md-input-container class="md-block">
-                            <!-- Use floating label instead of placeholder -->
-                            <label>Current page:</label>
-                            <input ng-model="ctrl.options.pageObject.page" placeholder="Current Page" type="text">
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Items per page:</label>
-                            <md-select name="type" ng-model="ctrl.options.pageObject.size">
-                                <md-option value="10">10</md-option>
-                                <md-option value="20">20</md-option>
-                                <md-option value="50">50</md-option>
-                            </md-select>
-                        </md-input-container>
-                    </md-card-content>
-                </div>
+                    <div>
+                        <div flex layout="row">
+                            <div flex="50">
+                                <h4>Sort Options</h4>
+                                <div ng-repeat="item in ctrl.sortSselection">
+                                    <md-checkbox
+                                            ng-checked="ctrl.exists(item, ctrl.options.sortObject.options)"
+                                            ng-click="ctrl.toggle(item, ctrl.options.sortObject.options)">
+                                        {{ item }}
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                            <div flex="50">
+                                <h4>Page Options</h4>
+                                <div ng-repeat="item in ctrl.pageSelection">
+                                    <md-checkbox
+                                            ng-checked="ctrl.exists(item, ctrl.options.pageObject.options)"
+                                            ng-click="ctrl.toggle(item, ctrl.options.pageObject.options)">
+                                        {{ item }}
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                        <div flex layout="row">
+                            <md-input-container class="md-block" flex="50">
+                                <!-- Use floating label instead of placeholder -->
+                                <label>Current page:</label>
+                                <input ng-model="ctrl.options.pageObject.page" placeholder="Current Page"
+                                       type="text">
+                            </md-input-container>
+                        </div>
+                        </md-card-content>
+                    </div>
             </md-card>
         </div>
         <md-divider></md-divider>

@@ -30,7 +30,7 @@ export class FdzPaginatorComponentController implements IComponentController {
 
   public pageSize(): void {
     this.options.pageObject.page = 1;
-    this.onUpdate({$event: 'pageObject.size', $option: this.options});
+    this.onUpdate({$event: '', $option: this.options});
     this.calculateCurrentPage();
   }
 

@@ -3,10 +3,10 @@
         <span class="fdz-paginator__label">Sort by:</span>
         <md-select
                 class=""
-                ng-change="$ctrl.onUpdate({$event: 'sortObject.selected', $option: $ctrl.options})"
-                ng-disabled="$ctrl.options.sortObject.options.length === 1"
+                ng-change="$ctrl.onUpdate({$event: '', $option: $ctrl.options})"
+                ng-disabled="$ctrl.options.sortObject.options.length <= 1"
                 ng-model="$ctrl.options.sortObject.selected"
-                placeholder="Sort by:">
+                aria-label="Sort by:">
             <md-option
                     ng-repeat="item in $ctrl.options.sortObject.options"
                     ng-selected="$ctrl.options.sortObject.selected == item"
@@ -20,7 +20,8 @@
                 class=""
                 ng-change="$ctrl.pageSize()"
                 ng-model="$ctrl.options.pageObject.size"
-                placeholder="Items per Page">
+                ng-disabled="$ctrl.options.pageObject.options.length <= 1"
+                aria-label="Items per Page">
             <md-option
                     ng-repeat="item in $ctrl.options.pageObject.options"
                     ng-selected="$ctrl.options.pageObject.size == item"
