@@ -3,8 +3,8 @@ language: node_js
 node_js:
   - lts/*
 
-before_install:
-  - npm i -g npm@^6.0.0
+before_script:
+  - npm run build
 
 script:
   - npm run test
@@ -16,6 +16,7 @@ deploy:
   - provider: npm
     email: $NPM_EMAIL
     api_key: $NPM_AUTH_TOKEN
+    skip_cleanup: true
     on:
       tags: true
       branch: master
