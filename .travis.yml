@@ -14,12 +14,11 @@ script:
 after_success:
   - npm run build
 
-skip_cleanup: true
-
 deploy:
   - provider: npm
     email: $NPM_EMAIL
     api_key: $NPM_AUTH_TOKEN
+    skip_cleanup: true
     on:
       tags: true
       branch: master
