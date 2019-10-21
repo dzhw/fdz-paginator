@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FDZ Paginator</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"
+          rel="stylesheet">
+    <link href="../dest/fdz-paginator.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    <script src="../dest/fdz-paginator.js"></script>
+    <style>
+        .md-card-collapsible-button {
+            min-width: 24px;
+            min-height: 24px;
+            line-height: 24px;
+            padding: 8px;
+            margin: auto;
+            display: inline-flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body layout="column" ng-app="Example" ng-cloak>
+<div class="container" flex layout="row">
+    <md-content flex ng-controller="ExampleController as ctrl" style="margin: 30px">
+        <div layout="column" layout-padding>
+            <md-card>
+                <md-card-header>
+                    <md-card-header-text>
+                        <h2>Configuration</h2>
+                    </md-card-header-text>
+                    <md-button
+                            aria-label="md-card collapsed = {{ctrl.collapsed}}}"
+                            class="md-card-collapsible-button"
+                            ng-click="ctrl.collapsed = !ctrl.collapsed">
+                        <md-icon md-font-set="material-icons" ng-if="ctrl.collapsed">keyboard_arrow_up</md-icon>
+                        <md-icon md-font-set="material-icons" ng-if="!ctrl.collapsed">keyboard_arrow_down</md-icon>
+                    </md-button>
+                </md-card-header>
+                <div ng-if="ctrl.collapsed">
+                    <md-divider></md-divider>
+                    <div>
+                        <div flex layout="row">
+                            <div flex="50">
+                                <h4>Sort Options</h4>
+                                <div ng-repeat="item in ctrl.sortSselection">
+                                    <md-checkbox
+                                            ng-checked="ctrl.exists(item, ctrl.options.sortObject.options)"
+                                            ng-click="ctrl.toggle(item, ctrl.options.sortObject.options)">
+                                        {{ item }}
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                            <div flex="50">
+                                <h4>Page Options</h4>
+                                <div ng-repeat="item in ctrl.pageSelection">
+                                    <md-checkbox
+                                            ng-checked="ctrl.exists(item, ctrl.options.pageObject.options)"
+                                            ng-click="ctrl.toggle(item, ctrl.options.pageObject.options)">
+                                        {{ item }}
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                        <div flex layout="row">
+                            <md-input-container class="md-block" flex="50">
+                                <!-- Use floating label instead of placeholder -->
+                                <label>Current page:</label>
+                                <input ng-model="ctrl.options.pageObject.page" placeholder="Current Page"
+                                       type="text">
+                            </md-input-container>
+                        </div>
+                        </md-card-content>
+                    </div>
+            </md-card>
+        </div>
+        <md-divider></md-divider>
+        <h5>fdzpaginator:</h5>
+        <md-card flex layout="row">
+            <md-card-content flex>
+                <fdz-paginator
+                        on-update="ctrl.onUpdate(event = $event, option = $option)"
+                        options="ctrl.options"
+                        template-url="../dest/fdzPaginatorTemplate.html"></fdz-paginator>
+            </md-card-content>
+
+        </md-card>
+    </md-content>
+</div>
+
+</body>
+</html>
