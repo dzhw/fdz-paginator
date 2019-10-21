@@ -16,7 +16,9 @@
     "dest/fdzPaginatorTemplate.html",
     "docs/fdz-paginator.js",
     "docs/fdz-paginator.css",
-    "docs/fdzPaginatorTemplate.html"
+    "docs/fdzPaginatorTemplate.html",
+    "docs/app.js",
+    "docs/index.html"
   ],
   "repository": {
     "type": "git",
