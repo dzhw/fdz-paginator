@@ -10,6 +10,14 @@
     "build:docs": "webpack --config=webpack.config.docs.js",
     "test": "karma start"
   },
+  "files": [
+    "dest/fdz-paginator.js",
+    "dest/fdz-paginator.css",
+    "dest/fdzPaginatorTemplate.html",
+    "docs/fdz-paginator.js",
+    "docs/fdz-paginator.css",
+    "docs/fdzPaginatorTemplate.html"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://MIKAGMR@github.com/dzhw/fdz-paginator.git"
