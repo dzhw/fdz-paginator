@@ -2,10 +2,10 @@
   angular.module('Example', ['ngMaterial', 'fdzPaginatorModule'])
     .controller('ExampleController', function($scope) {
       let ctrl=this;
-      ctrl.collapsed=false;
+      ctrl.collapsed=true;
 
-      ctrl.selection=['Relevance', 'Date', 'A-Z'];
-
+      ctrl.sortSselection=['Relevance', 'Date', 'A-Z'];
+      ctrl.pageSelection=[10, 20, 50];
       ctrl.options={
         sortObject: {
           selected: 'Relevance',
@@ -15,7 +15,7 @@
           options: [10, 20, 50],
           totalHits: 100,
           size: 20,
-          page: 7
+          page: 1
         }
       };
 
@@ -37,6 +37,5 @@
           list.push(item);
         }
       };
-
     });
 })();

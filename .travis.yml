@@ -4,7 +4,7 @@ node_js:
   - lts/*
 
 before_script:
-  - npm run build
+  - npm run build:prod
 
 install:
   - npm install
@@ -12,7 +12,7 @@ install:
 script:
   - npm run test
 after_success:
-  - npm run docs
+  - npm run build
 
 deploy:
   - provider: npm
