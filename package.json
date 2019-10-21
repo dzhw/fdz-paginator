@@ -1,6 +1,6 @@
 {
   "name": "fdz-paginator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AngularJS component which implements a paginator for AngularJS",
   "scripts": {
     "watch": "webpack  --config=webpack.config.dev.js --watch",
