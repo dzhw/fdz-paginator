@@ -1,12 +1,12 @@
 <div class="fdz-paginator">
-    <md-input-container class="fdz-paginator__container">
+    <md-input-container class="fdz-paginator__container fdz-show">
         <span class="fdz-paginator__label">Sort by:</span>
         <md-select
-                class=""
+                aria-label="Sort by:"
+                class="fdz-paginator__select"
                 ng-change="$ctrl.onUpdate({$event: '', $option: $ctrl.options})"
                 ng-disabled="$ctrl.options.sortObject.options.length <= 1"
-                ng-model="$ctrl.options.sortObject.selected"
-                aria-label="Sort by:">
+                ng-model="$ctrl.options.sortObject.selected">
             <md-option
                     ng-repeat="item in $ctrl.options.sortObject.options"
                     ng-selected="$ctrl.options.sortObject.selected == item"
@@ -14,40 +14,43 @@
             </md-option>
         </md-select>
     </md-input-container>
-    <md-input-container class="fdz-paginator__container">
-        <span class="fdz-paginator__label">Items per page:</span>
-        <md-select
-                class=""
-                ng-change="$ctrl.pageSize()"
-                ng-model="$ctrl.options.pageObject.size"
-                ng-disabled="$ctrl.options.pageObject.options.length <= 1"
-                aria-label="Items per Page">
-            <md-option
-                    ng-repeat="item in $ctrl.options.pageObject.options"
-                    ng-selected="$ctrl.options.pageObject.size == item"
-                    ng-value="item">{{item}}
-            </md-option>
-        </md-select>
-    </md-input-container>
     <div class="fdz-paginator__container">
+        <md-input-container class="fdz-paginator__container">
+            <span class="fdz-paginator__label">Items per page:</span>
+            <md-select
+                    aria-label="Items per Page"
+                    class="fdz-paginator__select"
+                    ng-change="$ctrl.pageSize()"
+                    ng-disabled="$ctrl.options.pageObject.options.length <= 1"
+                    ng-model="$ctrl.options.pageObject.size">
+                <md-option
+                        ng-repeat="item in $ctrl.options.pageObject.options"
+                        ng-selected="$ctrl.options.pageObject.size == item"
+                        ng-value="item">{{item}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="fdz-paginator__container">
         <span class="fdz-paginator__label">{{$ctrl.calculateCurrentPage()}} von {{$ctrl.options.pageObject.totalHits}}</span>
         <md-button
                 class="fdz-paginator__button"
                 ng-click="$ctrl.previous();"
                 ng-disabled="$ctrl.options.pageObject.page <= 1">
             <md-icon
-                    md-font-set="material-icons"
-                    class="md-primary">keyboard_arrow_left</md-icon>
+                    class="md-primary"
+                    md-font-set="material-icons">keyboard_arrow_left
+            </md-icon>
         </md-button>
         <md-button
                 class="fdz-paginator__button"
                 ng-click="$ctrl.next();"
                 ng-disabled="$ctrl.options.pageObject.page >= ($ctrl.options.pageObject.totalHits / $ctrl.options.pageObject.size)">
             <md-icon
-                    md-font-set="material-icons"
-                    class="md-primary">keyboard_arrow_right
+                    class="md-primary"
+                    md-font-set="material-icons">keyboard_arrow_right
             </md-icon>
         </md-button>
+        </md-input-container>
     </div>
 </div>
 

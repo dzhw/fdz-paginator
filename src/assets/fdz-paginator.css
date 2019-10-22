@@ -1,7 +1,7 @@
 fdz-paginator {
   display: flex;
-  width: 100%;
-  margin:8px;
+  margin: 0 16px;
+
 }
 
 .fdz-paginator {
@@ -17,13 +17,18 @@ fdz-paginator {
   align-items: center;
   margin: 8px 0;
 }
-
+.fdz-paginator__container > .fdz-paginator__container {
+  margin: 0;
+}
+.fdz-paginator__select {
+  margin-right: 8px;
+}
 .fdz-paginator__button {
   min-width: 24px;
   min-height: 24px;
   line-height: 24px;
   padding: 8px;
-  margin: 0 8px;
+  margin: 0;
   display: inline-flex;
   justify-content: center;
 }
@@ -32,8 +37,17 @@ fdz-paginator {
   margin-right: 16px;
 }
 
+.fdz-show {
+  display:flex
+}
 @media (max-width: 600px) {
   .fdz-paginator {
     flex-flow: column;
+  }
+  .fdz-paginator__container {
+    justify-content: space-between;
+  }
+  .fdz-show {
+    display: none;
   }
 }
