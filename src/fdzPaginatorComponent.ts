@@ -1,5 +1,5 @@
 import {FdzPaginatorComponentController} from './fdzPaginatorComponentController';
-import {IComponentOptions} from 'angular';
+import {IAttributes, IComponentOptions, IScope} from 'angular';
 
 export class FdzPaginatorComponent implements IComponentOptions {
   static NAME: string = 'fdzPaginator';
@@ -8,7 +8,9 @@ export class FdzPaginatorComponent implements IComponentOptions {
     options: '<',
     onUpdate: '&?'
   };
-  public templateUrl: any = function ($attrs: any) {
-    return $attrs.templateUrl || './fdzPaginatorTemplate.html';
-  };
+
+  public templateUrl: any = ['$attrs', function ($attrs: IAttributes) {
+    return $attrs['templateUrl'] || './fdzPaginatorTemplate.html';
+  }];
+
 }

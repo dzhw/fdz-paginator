@@ -7,6 +7,11 @@ AngularJS component which implements a paginator for AngularJS Material.
 This repository contains a component based on AngularJS and AngularJS Materials.
 
 ### Installation
+Install from the npm registry:
+```
+npm install fdz-paginator
+```
+
 You need declare the dependency on the fdzPaginatorModule:
 ```
 angular.module('ExampleModule', ['ngMaterial', 'fdzPaginatorModule'])
@@ -32,11 +37,8 @@ Add the the fdz-pagination.css to your html file and change the fdzPaginatorTemp
 
 ## Build
 
-### Production Build
+### Build docs directory and production
 `npm run build`
-
-### Build the example in the docs folder
-`npm run docs`
 
 ## Development
 

@@ -1,4 +1,4 @@
-import {IComponentController} from 'angular';
+import {IAttributes, IComponentController} from 'angular';
 
 export class FdzPaginatorComponentController implements IComponentController {
   static NAME: string = 'fdzPaginatorController';
@@ -6,10 +6,6 @@ export class FdzPaginatorComponentController implements IComponentController {
   public selectedPageOption!: number;
   public selectedSortOption!: string;
   public onUpdate: (args: any) => void;
-
-  /* @ngInject */
-  constructor() {
-  }
 
   public $onInit(): void {
   }
