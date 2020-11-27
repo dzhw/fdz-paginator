@@ -1,8 +1,5 @@
 name: Build
-on:
-  push:
-    branches-ignore:
-      - master
+on: push
 jobs:
   build:
     runs-on: ubuntu-18.04
